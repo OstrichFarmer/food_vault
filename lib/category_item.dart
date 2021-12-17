@@ -6,6 +6,7 @@ class CategoryItem extends StatelessWidget {
   final String title;
   final Color color;
 
+  // ignore: use_key_in_widget_constructors
   const CategoryItem(this.title, this.color);
 
   @override
