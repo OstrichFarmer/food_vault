@@ -16,6 +16,32 @@ class MealItem extends StatelessWidget {
       required this.complexity,
       required this.affordability});
 
+  String get complexityText {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'Simple';
+      case Complexity.Challenging:
+        return 'Challenging';
+      case Complexity.Hard:
+        return 'Hard';
+      default:
+        return 'unknown';
+    }
+  }
+
+  String get affordabilityText {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return 'Affordable';
+      case Affordability.Pricey:
+        return 'Quite expensive';
+      case Affordability.Luxurious:
+        return 'Very expensive';
+      default:
+        return 'price unknown';
+    }
+  }
+
   void selectMeal() {}
 
   @override
@@ -61,6 +87,41 @@ class MealItem extends StatelessWidget {
                   ),
                 )
               ],
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      const Icon(Icons.schedule),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text('$duration min')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.work),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(complexityText),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      const Icon(Icons.attach_money),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Text(affordabilityText),
+                    ],
+                  )
+                ],
+              ),
             )
           ],
         ),
