@@ -3,14 +3,17 @@ import 'package:flutter/material.dart';
 class MealDetailScreen extends StatelessWidget {
   const MealDetailScreen({Key? key}) : super(key: key);
 
+  static const routeName = '/meal-detail';
+
   @override
   Widget build(BuildContext context) {
+    final mealId = ModalRoute.of(context)!.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meal Detail Screen'),
+        title: Text('$mealId'),
       ),
-      body: const Center(
-        child: Text(''),
+      body: Center(
+        child: Text('Meal id : $mealId'),
       ),
     );
   }
